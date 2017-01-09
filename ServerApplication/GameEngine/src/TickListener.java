@@ -1,0 +1,3 @@
+interface TickListener {
+   void onTick();
+}
