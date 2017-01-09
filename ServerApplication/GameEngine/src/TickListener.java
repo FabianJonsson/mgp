@@ -1,3 +1,3 @@
 interface TickListener {
-   void onTick();
+   void onTick(TickInfo info);
 }
