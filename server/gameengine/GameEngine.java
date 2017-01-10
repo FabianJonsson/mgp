@@ -22,34 +22,34 @@ public class GameEngine {
 		this.compileTickInfo();
 	}
 	
-	public void run() {
-		
-		while(true) {
-		
-			this.compileTickInfo();
-			
-			// Fixed tick rate (10 ms)
-			long dt = 10 - this.currentTick.timeElapsedSincePreviousTickInMilliseconds;
-			if(dt > 0) {
-				try {
-					TimeUnit.MILLISECONDS.sleep(dt);
-					this.currentTick.timeElapsedSincePreviousTickInMilliseconds = 10;
-					this.lastTimestamp = System.nanoTime();
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
-		
-			this.tick();
-			
-		}
-		
-	}
-	
 	public void addTickListener(TickListener l) {
 		this.listeners.add(l);
 	}
 	
+	public void run() {
+		while(true) {
+			this.compileTickInfo();
+			this.waitIfFasterThanTickspeed();
+			this.tick();	
+		}
+	}
+	
+	private void waitIfFasterThanTickspeed() {
+		long dt = GameEngineSettings.TICKSPEED_IN_MILLISECONDS - this.currentTick.timeElapsedSincePreviousTickInMilliseconds;
+		if(dt > 0) {
+			
+			try {
+				TimeUnit.MILLISECONDS.sleep(dt);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+			this.currentTick.timeElapsedSincePreviousTickInMilliseconds = GameEngineSettings.TICKSPEED_IN_MILLISECONDS;
+			this.lastTimestamp = System.nanoTime();
+			
+		}
+	}
+
 	private void tick() {
 		for(Iterator<TickListener> it = this.listeners.iterator(); it.hasNext();) {
 			TickListener module = it.next();
