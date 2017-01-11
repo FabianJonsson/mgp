@@ -44,8 +44,12 @@ public class Vmath {
 		return output;
 	}
 	
+	public static double dot(coordinate a, coordinate b) {
+		return a.x*b.x + a.y*b.y + a.z*b.z;
+	}
+	
 	public static double norm(coordinate a) {
-		return Math.sqrt(a.x*a.x + a.y*a.y + a.z*a.z);
+		return Math.sqrt(dot(a,a));
 	}
 	
 	public static coordinate unitvector(coordinate a) {
