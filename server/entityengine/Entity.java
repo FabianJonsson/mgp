@@ -11,6 +11,11 @@ public abstract class Entity {
 	protected long ID;
 	protected coordinate pos;
 	
+	// Entity API
+	public Entity() {
+		this.initState();
+	}
 	public abstract void updateState(long timeElapsedSinceLastUpdateInMilliseconds);
+	public abstract void initState();
 	
 }

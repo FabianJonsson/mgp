@@ -23,5 +23,9 @@ public class EntityEngine implements TickListener {
 			entity.updateState(info.timeElapsedSincePreviousTickInMilliseconds);
 		}
 	}
+	
+	public void addEntity(Entity e) {
+		this.entities.add(e);
+	}
 
 }
