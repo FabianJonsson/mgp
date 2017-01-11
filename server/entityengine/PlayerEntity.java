@@ -1,6 +1,6 @@
 package com.mgp.server.entityengine;
 
-public class PlayerEntity extends DynamicObject {
+public class PlayerEntity extends DynamicEntity {
 
 	public PlayerEntity() {
 		super();

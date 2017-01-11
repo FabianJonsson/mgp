@@ -3,7 +3,7 @@ package com.mgp.server.entityengine;
 import com.mgp.utilities.Vmath;
 import com.mgp.utilities.coordinate;
 
-public abstract class DynamicObject extends Entity {
+public abstract class DynamicEntity extends Entity {
 	
 	protected double m;
 	protected coordinate v,a,F;
