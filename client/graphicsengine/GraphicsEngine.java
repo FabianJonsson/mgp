@@ -1,5 +1,7 @@
 package com.mgp.client.graphicsengine;
 
-public class GraphicsEngine {
+import com.mgp.server.gameengine.TickListener;
+
+public abstract class GraphicsEngine implements TickListener {
 	
 }

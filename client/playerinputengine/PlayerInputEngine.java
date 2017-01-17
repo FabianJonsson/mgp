@@ -1,5 +1,7 @@
 package com.mgp.client.playerinputengine;
 
-public class PlayerInputEngine {
+import com.mgp.server.gameengine.TickListener;
+
+public abstract class PlayerInputEngine implements TickListener {
 
 }

@@ -1,5 +1,7 @@
 package com.mgp.client.soundengine;
 
-public class SoundEngine {
+import com.mgp.server.gameengine.TickListener;
+
+public abstract class SoundEngine implements TickListener {
 
 }

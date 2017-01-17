@@ -6,6 +6,7 @@ import java.awt.event.AWTEventListener;
 import java.awt.event.KeyEvent;
 
 import com.mgp.client.playerinputengine.PlayerInputEngine;
+import com.mgp.server.gameengine.TickInfo;
 
 public class PCKeyboardAndMouse extends PlayerInputEngine {
 
@@ -36,6 +37,12 @@ public class PCKeyboardAndMouse extends PlayerInputEngine {
 		};
 
 		Toolkit.getDefaultToolkit().addAWTEventListener(listener, AWTEvent.KEY_EVENT_MASK);
+		
+	}
+
+	@Override
+	public void onTick(TickInfo info) {
+		// TODO Auto-generated method stub
 		
 	}
 	
